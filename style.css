@@ -1,12 +1,11 @@
 .container { /* Родительский контейнер: включаем CSS Grid для раскладки */
   display: grid; /* Активируем grid-контейнер */
   grid-template-areas:  /* Определяем именованные области сетки построчно */
-    "header header header" /* 1-я строка: шапка на 3 колонки */
-    "sidebar sidebar sidebar" /* 2-я строка: сайдбар на 3 колонки (стек сверху/снизу) */
-    "content content content" /* 3-я строка: основной контент на 3 колонки */
-    "footer footer footer"; /* 4-я строка: подвал на 3 колонки */
-  /* при желании можно явно задать колонки, например:
-     grid-template-columns: 1fr 1fr 1fr;  три равные колонки */
+  "header header header"
+  "sidebar content content"
+  "sidebar footer footer";
+  grid-template-columns: 300px 1fr 1fr; /* колонка сайдбара 300px, две колонки контента — эластичные */
+
   gap: 10px; /* Отступы (зазоры) между областями сетки по горизонтали и вертикали */
   border: 1px solid black; /* Рамка вокруг всего контейнера (для наглядности) */
 } /* Конец .container */
