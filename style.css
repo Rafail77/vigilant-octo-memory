@@ -1,37 +1,132 @@
-.container { /* Родительский контейнер: включаем CSS Grid для раскладки */
-  display: grid; /* Активируем grid-контейнер */
-  grid-template-areas:  /* Определяем именованные области сетки построчно */
-  "header header header"
-  "sidebar content content"
-  "sidebar footer footer";
-  grid-template-columns: 300px 1fr 1fr; /* колонка сайдбара 300px, две колонки контента — эластичные */
+ * { box-sizing: border-box; } /* Унифицируем модель коробки: padding/бордер входят в width/height */
+    body { margin: 20px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; } /* Базовые отступы и шрифт */
 
-  gap: 10px; /* Отступы (зазоры) между областями сетки по горизонтали и вертикали */
-  border: 1px solid black; /* Рамка вокруг всего контейнера (для наглядности) */
-} /* Конец .container */
+    /* ===== Пример 1. Макет с областями: header / sidebar / content / footer ===== */
+    .container { /* Родительский контейнер: включаем CSS Grid для раскладки */
+      display: grid; /* Активируем grid-контейнер */
+      grid-template-areas:  /* Определяем именованные области сетки построчно */
+        "header header header"  /* 1-я строка: шапка на 3 колонки */
+        "sidebar content content" /* 2-я строка: слева сайдбар, справа контент на 2 колонки */
+        "sidebar footer footer";  /* 3-я строка: слева сайдбар, справа футер на 2 колонки */
+      grid-template-columns: 300px 1fr 1fr; /* Ширины колонок: 300px и две эластичные */
+      gap: 10px; /* Зазор между ячейками сетки (строки и колонки) */
+      border: 1px solid black; /* Рамка контейнера для наглядности */
+      padding: 10px; /* Внутренние отступы, чтобы контент не прилипал к рамке */
+      margin-bottom: 20px; /* Отступ снизу от примера */
+      background: #fafafa; /* Светлый фон для контраста */
+    } /* Конец .container */
 
-.header { /* Стили для блока шапки */
-    grid-area: header; /* Привязываем блок к именованной области 'header' */
-    background-color: lightblue; /* Фон шапки: светло-голубой */
-    text-align: center; /* Выравниваем текст по центру горизонтально */
-    padding: 20px; /* Внутренние отступы со всех сторон по 20px */
-} /* Конец .header */
+    .header { /* Стили для блока шапки */
+      grid-area: header; /* Привязываем к именованной области 'header' */
+      background-color: lightblue; /* Светло-голубой фон */
+      text-align: center; /* Текст по центру */
+      padding: 20px; /* Внутренний отступ */
+      border-radius: 6px; /* Слегка скругляем углы */
+    } /* Конец .header */
 
-.sidebar { /* Стили для боковой панели */
-    grid-area: sidebar; /* Привязываем блок к именованной области 'sidebar' */
-    background-color: lightcoral; /* Фон сайдбара: светло-коралловый */
-    padding: 20px; /* Внутренние отступы со всех сторон по 20px */
-} /* Конец .sidebar */
+    .sidebar { /* Стили для боковой панели */
+      grid-area: sidebar; /* Привязываем к 'sidebar' */
+      background-color: lightcoral; /* Светло-коралловый фон */
+      padding: 20px; /* Внутренний отступ */
+      border-radius: 6px; /* Скругления */
+      min-height: 140px; /* Небольшая высота для наглядности */
+    } /* Конец .sidebar */
 
-.content { /* Стили для основного контента */
-    grid-area: content; /* Привязываем блок к именованной области 'content' */
-    background-color: lightgreen; /* Фон контента: светло-зелёный */
-    padding: 20px; /* Внутренние отступы со всех сторон по 20px */
-} /* Конец .content */
+    .content { /* Стили для основного контента */
+      grid-area: content; /* Привязываем к 'content' */
+      background-color: lightgreen; /* Светло-зелёный фон */
+      padding: 20px; /* Внутренний отступ */
+      border-radius: 6px; /* Скругления */
+      min-height: 140px; /* Небольшая высота для наглядности */
+    } /* Конец .content */
 
-.footer { /* Стили для подвала */
-    grid-area: footer; /* Привязываем блок к именованной области 'footer' */
-    background-color: lightslategray; /* Фон подвала: светло-грифельно-серый */
-    text-align: center; /* Выравниваем текст по центру горизонтально */
-    padding: 20px; /* Внутренние отступы со всех сторон по 20px */
-} /* Конец .footer */
+    .footer { /* Стили для подвала */
+      grid-area: footer; /* Привязываем к 'footer' */
+      background-color: lightslategray; /* Светло-грифельно-серый фон */
+      color: #fff; /* Белый текст для контраста */
+      text-align: center; /* Центрируем текст */
+      padding: 20px; /* Внутренний отступ */
+      border-radius: 6px; /* Скругления */
+    } /* Конец .footer */
+
+    /* ===== Пример 2. Простейшая сетка 2×2 (без именованных областей) ===== */
+    .container2 { /* Родительский контейнер 2×2 */
+      display: grid; /* Включаем Grid */
+      grid-template-columns: 1fr 1fr; /* Две равные колонки */
+      grid-template-rows: 150px 150px; /* Две строки по 150px */
+      gap: 10px; /* Зазор между ячейками */
+      border: 2px solid #333; /* Рамка для наглядности */
+      padding: 10px; /* Внутренние отступы */
+      margin-bottom: 20px; /* Отступ снизу от примера */
+    } /* Конец .container2 */
+
+    .item { /* Общий стиль элементов сетки (Пример 2) */
+      background: lightblue; /* Фон */
+      display: flex; /* Используем flex для центрирования текста */
+      align-items: center; /* Центр по вертикали */
+      justify-content: center; /* Центр по горизонтали */
+      font-size: 24px; /* Крупный текст */
+      font-weight: bold; /* Жирный */
+      border-radius: 6px; /* Скругления */
+    } /* Конец .item */
+
+    /* ===== Пример 3. Объединение ячеек (span по колонкам и строкам) ===== */
+    .container3 { /* Родительский контейнер с тремя колонками */
+      display: grid; /* Включаем Grid */
+      grid-template-columns: repeat(3, 1fr); /* 3 равные колонки */
+      grid-auto-rows: 100px; /* Высота строк по умолчанию 100px */
+      gap: 10px; /* Зазор между ячейками */
+      margin-bottom: 20px; /* Отступ снизу */
+    } /* Конец .container3 */
+
+    .item3 { /* Общий стиль для элементов Примера 3 */
+      background: lightgreen; /* Фон */
+      display: flex; /* Для центрирования */
+      align-items: center; /* Центр по вертикали */
+      justify-content: center; /* Центр по горизонтали */
+      font-size: 20px; /* Размер текста */
+      font-weight: bold; /* Жирный */
+      border-radius: 6px; /* Скругления */
+    } /* Конец .item3 */
+
+    .item1 { grid-column: span 3; } /* Растянуть элемент на все 3 колонки (широкая шапка) */
+    .item2 { grid-row: span 2; } /* Растянуть элемент на 2 строки вниз (высокая боковая) */
+
+    /* ===== Пример 4. Именованные области (grid-template-areas) ===== */
+    .container4 { /* Родитель с именованными областями */
+      display: grid; /* Включаем Grid */
+      grid-template-columns: 200px 1fr; /* Левая колонка фикс 200px, правая — гибкая */
+      grid-template-rows: 80px 1fr 60px; /* Строки: шапка 80px, контент авто, подвал 60px */
+      grid-template-areas:
+        "header4 header4" /* 1-я строка: шапка на обе колонки */
+        "sidebar4 main4"  /* 2-я строка: слева сайдбар, справа контент */
+        "footer4 footer4"; /* 3-я строка: подвал на обе колонки */
+      gap: 10px; /* Зазор между областями */
+      height: 60vh; /* Чуть меньше экрана, чтобы было видно в примере */
+      margin-bottom: 20px; /* Отступ снизу */
+    } /* Конец .container4 */
+
+    .header4  { grid-area: header4; background: lightblue; display:flex; align-items:center; justify-content:center; border-radius:6px; } /* Привязка к области header4 и оформление */
+    .sidebar4 { grid-area: sidebar4; background: lightcoral; display:flex; align-items:center; justify-content:center; border-radius:6px; } /* Привязка к области sidebar4 и оформление */
+    .main4    { grid-area: main4;    background: lightgreen; display:flex; align-items:center; justify-content:center; border-radius:6px; } /* Привязка к области main4 и оформление */
+    .footer4  { grid-area: footer4;  background: lightslategray; color:#fff; display:flex; align-items:center; justify-content:center; border-radius:6px; } /* Привязка к области footer4 и оформление */
+
+    /* ===== Пример 5. Автоматическое заполнение (auto-fill) и гибкость ===== */
+    .container5 { /* Родитель для «карточек» */
+      display: grid; /* Включаем Grid */
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Колонок столько, сколько поместится, минимум 150px */
+      gap: 10px; /* Зазор между карточками */
+      padding: 10px; /* Внутренний отступ */
+      border: 2px dashed #999; /* Пунктирная рамка для наглядности */
+    } /* Конец .container5 */
+
+    .item5 { /* Стиль карточек в авто-сетке */
+      background: peachpuff; /* Фон карточки */
+      height: 100px; /* Фиксированная высота для наглядности */
+      display: flex; /* Центрирование содержимого */
+      align-items: center; /* Центр по вертикали */
+      justify-content: center; /* Центр по горизонтали */
+      font-size: 18px; /* Размер шрифта */
+      font-weight: bold; /* Жирный */
+      border-radius: 6px; /* Скругления */
+    } /* Конец .item5 */

@@ -8,14 +8,51 @@
     <link rel="stylesheet" href="style.css"> <!-- Подключение внешнего CSS-файла со стилями -->
 </head> <!-- Конец головы документа -->
 
-<body> <!-- Тело документа: всё видимое содержимое страницы -->
+<body> <!-- Тело документа -->
 
-    <div class="container"> <!-- Контейнер-сетка (родительский grid) -->
-        <div class="header">Header</div> <!-- Область шапки (header) -->
-        <div class="sidebar">Sidebar</div> <!-- Область боковой панели (sidebar) -->
-        <div class="content">Content</div> <!-- Область основного контента (content) -->
-        <div class="footer">Footer</div> <!-- Область подвала (footer) -->
-    </div> <!-- Конец контейнера-сетки -->
+  <!-- ===== Пример 1: Именованные области с сайдбаром слева и контентом справа ===== -->
+  <div class="container"> <!-- Родительская Grid-сетка -->
+    <div class="header">Header</div> <!-- Шапка, привязана к области 'header' -->
+    <div class="sidebar">Sidebar</div> <!-- Сайдбар, привязан к 'sidebar' -->
+    <div class="content">Content</div> <!-- Контент, привязан к 'content' -->
+    <div class="footer">Footer</div> <!-- Подвал, привязан к 'footer' -->
+  </div> <!-- Конец .container -->
+
+  <!-- ===== Пример 2: Сетка 2×2 без именованных областей ===== -->
+  <div class="container2"> <!-- Родитель 2×2 -->
+    <div class="item">1</div> <!-- Ячейка 1 -->
+    <div class="item">2</div> <!-- Ячейка 2 -->
+    <div class="item">3</div> <!-- Ячейка 3 -->
+    <div class="item">4</div> <!-- Ячейка 4 -->
+  </div> <!-- Конец .container2 -->
+
+  <!-- ===== Пример 3: Объединение ячеек (span) ===== -->
+  <div class="container3"> <!-- ВАЖНО: используем правильный класс container3 (исправлено) -->
+    <div class="item3 item1">Шапка (span 3)</div> <!-- Растянутая на 3 колонки -->
+    <div class="item3 item2">Боковая (span 2 row)</div> <!-- Тянется на 2 строки вниз -->
+    <div class="item3">Контент A</div> <!-- Обычная ячейка -->
+    <div class="item3">Контент B</div> <!-- Обычная ячейка -->
+    <div class="item3">Футер</div> <!-- Обычная ячейка -->
+  </div> <!-- Конец .container3 -->
+
+  <!-- ===== Пример 4: Именованные области с корректными именами (исправлено) ===== -->
+  <div class="container4"> <!-- Родитель с grid-template-areas -->
+    <div class="header4">Шапка</div> <!-- Привязка к области header4 -->
+    <div class="sidebar4">Сайдбар</div> <!-- Привязка к области sidebar4 -->
+    <div class="main4">Контент</div> <!-- Привязка к области main4 -->
+    <div class="footer4">Подвал</div> <!-- Привязка к области footer4 -->
+  </div> <!-- Конец .container4 -->
+
+  <!-- ===== Пример 5: Автоматическое заполнение карточками ===== -->
+  <div class="container5"> <!-- Родительская сетка с auto-fill -->
+    <div class="item5">1</div> <!-- Карточка 1 -->
+    <div class="item5">2</div> <!-- Карточка 2 -->
+    <div class="item5">3</div> <!-- Карточка 3 -->
+    <div class="item5">4</div> <!-- Карточка 4 -->
+    <div class="item5">5</div> <!-- Карточка 5 -->
+    <div class="item5">6</div> <!-- Карточка 6 -->
+    <div class="item5">7</div> <!-- Карточка 7 -->
+  </div> <!-- Конец .container5 -->
 
 </body> <!-- Конец тела документа -->
-</html> <!-- Закрывающий тег HTML-документа -->
+</html> <!-- Конец HTML-документа -->
