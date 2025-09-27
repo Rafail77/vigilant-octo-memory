@@ -1,17 +1,38 @@
-.container {
-  display: grid;
-  grid-template-areas: 
-  "header header header"
-  "sidebar sidebar sidebar"
-  "footer footer footer";
-  gap: 10px;
-  border: 1px solid black;
-  
-}
+.container { /* Родительский контейнер: включаем CSS Grid для раскладки */
+  display: grid; /* Активируем grid-контейнер */
+  grid-template-areas:  /* Определяем именованные области сетки построчно */
+    "header header header" /* 1-я строка: шапка на 3 колонки */
+    "sidebar sidebar sidebar" /* 2-я строка: сайдбар на 3 колонки (стек сверху/снизу) */
+    "content content content" /* 3-я строка: основной контент на 3 колонки */
+    "footer footer footer"; /* 4-я строка: подвал на 3 колонки */
+  /* при желании можно явно задать колонки, например:
+     grid-template-columns: 1fr 1fr 1fr;  три равные колонки */
+  gap: 10px; /* Отступы (зазоры) между областями сетки по горизонтали и вертикали */
+  border: 1px solid black; /* Рамка вокруг всего контейнера (для наглядности) */
+} /* Конец .container */
 
-.header {
-    grid-area: header;
-    background-color: lightblue;
-    text-align: center;
-    padding: 20px;
-}
+.header { /* Стили для блока шапки */
+    grid-area: header; /* Привязываем блок к именованной области 'header' */
+    background-color: lightblue; /* Фон шапки: светло-голубой */
+    text-align: center; /* Выравниваем текст по центру горизонтально */
+    padding: 20px; /* Внутренние отступы со всех сторон по 20px */
+} /* Конец .header */
+
+.sidebar { /* Стили для боковой панели */
+    grid-area: sidebar; /* Привязываем блок к именованной области 'sidebar' */
+    background-color: lightcoral; /* Фон сайдбара: светло-коралловый */
+    padding: 20px; /* Внутренние отступы со всех сторон по 20px */
+} /* Конец .sidebar */
+
+.content { /* Стили для основного контента */
+    grid-area: content; /* Привязываем блок к именованной области 'content' */
+    background-color: lightgreen; /* Фон контента: светло-зелёный */
+    padding: 20px; /* Внутренние отступы со всех сторон по 20px */
+} /* Конец .content */
+
+.footer { /* Стили для подвала */
+    grid-area: footer; /* Привязываем блок к именованной области 'footer' */
+    background-color: lightslategray; /* Фон подвала: светло-грифельно-серый */
+    text-align: center; /* Выравниваем текст по центру горизонтально */
+    padding: 20px; /* Внутренние отступы со всех сторон по 20px */
+} /* Конец .footer */
