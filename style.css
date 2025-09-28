@@ -1,5 +1,21 @@
- * { box-sizing: border-box; } /* Унифицируем модель коробки: padding/бордер входят в width/height */
-    body { margin: 20px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; } /* Базовые отступы и шрифт */
+ * {                          /* Звёздочка — универсальный селектор.
+                                Он выбирает абсолютно все элементы на странице. */
+  box-sizing: border-box;    /* Меняем модель коробки: ширина/высота блока включает
+                                padding и border. Это упрощает расчёт размеров —
+                                например, если задать width:200px, то padding не
+                                «раздует» элемент сверх 200px. */
+}
+
+body {                       /* Стиль применяется только к тегу <body> */
+  margin: 20px;              /* Отступы от края окна браузера со всех сторон */
+  font-family:               /* Семейство шрифтов для всего текста на странице */
+    system-ui,               /* Системный шрифт ОС (San Francisco, Segoe UI и т.д.) */
+    -apple-system,           /* Шрифт macOS/iOS, если поддерживается */
+    Segoe UI,                /* Шрифт Windows */
+    Roboto,                  /* Шрифт Android/Chrome OS */
+    Arial,                    /* Запасной шрифт, если выше не доступны */
+    sans-serif;               /* Общий семейный шрифт без засечек как последний вариант */
+}
 
     /* ===== Пример 1. Макет с областями: header / sidebar / content / footer ===== */
     .container { /* Родительский контейнер: включаем CSS Grid для раскладки */
